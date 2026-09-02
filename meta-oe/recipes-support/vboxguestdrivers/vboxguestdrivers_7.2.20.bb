@@ -35,7 +35,7 @@ export VBOX_KBUILD_TARGET_ARCH:x86-64 = "amd64"
 
 # The Makefile uses KERN_MAJ to decide whether vboxvideo is built. It defaults to
 # the *host* kernel version (uname -r), so pass the target one instead.
-KERN_MAJ = "${@(oe.kernel.get_version_file(d.getVar('STAGING_KERNEL_BUILDDIR')) or '').split('.')[0]}"
+KERN_MAJ = "${@(oe.kernel.get_version_file(d.getVar('STAGING_KERNEL_BUILDDIR'),d.getVar('KERNEL_PACKAGE_NAME')) or '').split('.')[0]}"
 
 # VirtualBox only ships the out-of-tree vboxvideo DRM module for kernels older
 # than 7.x - from 7.x on the in-tree drivers/gpu/drm/vboxvideo driver is used
